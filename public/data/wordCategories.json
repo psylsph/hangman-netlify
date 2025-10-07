@@ -1,0 +1,466 @@
+{
+  "categories": [
+    {
+      "id": "animals",
+      "name": "Animals",
+      "words": [
+        {
+          "word": "ELEPHANT",
+          "hint": "Largest land animal with a trunk",
+          "difficulty": "easy"
+        },
+        {
+          "word": "PENGUIN",
+          "hint": "Black and white bird that cannot fly",
+          "difficulty": "easy"
+        },
+        {
+          "word": "GIRAFFE",
+          "hint": "Tallest animal with a long neck",
+          "difficulty": "easy"
+        },
+        {
+          "word": "DOLPHIN",
+          "hint": "Intelligent marine mammal",
+          "difficulty": "easy"
+        },
+        {
+          "word": "BUTTERFLY",
+          "hint": "Colorful insect that undergoes metamorphosis",
+          "difficulty": "easy"
+        },
+        {
+          "word": "CROCODILE",
+          "hint": "Large reptile with powerful jaws",
+          "difficulty": "medium"
+        },
+        {
+          "word": "HIPPOPOTAMUS",
+          "hint": "Large semi-aquatic mammal from Africa",
+          "difficulty": "medium"
+        },
+        {
+          "word": "RHINOCEROS",
+          "hint": "Large mammal with horns on its nose",
+          "difficulty": "medium"
+        },
+        {
+          "word": "CHIMPANZEE",
+          "hint": "Intelligent primate closely related to humans",
+          "difficulty": "medium"
+        },
+        {
+          "word": "PLATYPUS",
+          "hint": "Egg-laying mammal from Australia",
+          "difficulty": "hard"
+        },
+        {
+          "word": "CHAMELEON",
+          "hint": "Lizard that can change its skin color",
+          "difficulty": "medium"
+        },
+        {
+          "word": "ARMADILLO",
+          "hint": "Mammal with a protective shell",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": "countries",
+      "name": "Countries",
+      "words": [
+        {
+          "word": "BRAZIL",
+          "hint": "Largest country in South America",
+          "difficulty": "easy"
+        },
+        {
+          "word": "JAPAN",
+          "hint": "Island nation in East Asia known for technology",
+          "difficulty": "easy"
+        },
+        {
+          "word": "FRANCE",
+          "hint": "European country famous for the Eiffel Tower",
+          "difficulty": "easy"
+        },
+        {
+          "word": "EGYPT",
+          "hint": "North African country with ancient pyramids",
+          "difficulty": "easy"
+        },
+        {
+          "word": "CANADA",
+          "hint": "Second largest country by area, north of USA",
+          "difficulty": "easy"
+        },
+        {
+          "word": "AUSTRALIA",
+          "hint": "Country and continent known for kangaroos",
+          "difficulty": "medium"
+        },
+        {
+          "word": "ARGENTINA",
+          "hint": "South American country famous for tango",
+          "difficulty": "medium"
+        },
+        {
+          "word": "MADAGASCAR",
+          "hint": "Island country off East Africa with unique wildlife",
+          "difficulty": "medium"
+        },
+        {
+          "word": "BANGLADESH",
+          "hint": "South Asian country with dense population",
+          "difficulty": "medium"
+        },
+        {
+          "word": "KAZAKHSTAN",
+          "hint": "Largest landlocked country in the world",
+          "difficulty": "hard"
+        },
+        {
+          "word": "AZERBAIJAN",
+          "hint": "Country at the crossroads of Europe and Asia",
+          "difficulty": "hard"
+        },
+        {
+          "word": "UZBEKISTAN",
+          "hint": "Central Asian country on the ancient Silk Road",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": "movies",
+      "name": "Movies & TV",
+      "words": [
+        {
+          "word": "TITANIC",
+          "hint": "Famous movie about a sinking ship",
+          "difficulty": "easy"
+        },
+        {
+          "word": "AVATAR",
+          "hint": "Blue alien movie by James Cameron",
+          "difficulty": "easy"
+        },
+        {
+          "word": "STARWARS",
+          "hint": "Space epic with Jedi and lightsabers",
+          "difficulty": "easy"
+        },
+        {
+          "word": "FROZEN",
+          "hint": "Disney movie with the song 'Let It Go'",
+          "difficulty": "easy"
+        },
+        {
+          "word": "JAWS",
+          "hint": "Steven Spielberg movie about a shark",
+          "difficulty": "easy"
+        },
+        {
+          "word": "INCEPTION",
+          "hint": "Movie about dreams within dreams",
+          "difficulty": "medium"
+        },
+        {
+          "word": "GLADIATOR",
+          "hint": "Russell Crowe movie set in ancient Rome",
+          "difficulty": "medium"
+        },
+        {
+          "word": "CASABLANCA",
+          "hint": "Classic romantic film from 1942",
+          "difficulty": "medium"
+        },
+        {
+          "word": "THEMATRIX",
+          "hint": "Sci-fi film with the red pill and blue pill",
+          "difficulty": "medium"
+        },
+        {
+          "word": "PULPFICTION",
+          "hint": "Quentin Tarantino film with nonlinear storyline",
+          "difficulty": "hard"
+        },
+        {
+          "word": "SCHINDLERSLIST",
+          "hint": "Steven Spielberg film about the Holocaust",
+          "difficulty": "hard"
+        },
+        {
+          "word": "TWELVEANGRYMEN",
+          "hint": "Classic courtroom drama film",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": "sports",
+      "name": "Sports",
+      "words": [
+        {
+          "word": "SOCCER",
+          "hint": "Most popular sport worldwide",
+          "difficulty": "easy"
+        },
+        {
+          "word": "TENNIS",
+          "hint": "Racket sport played on a court",
+          "difficulty": "easy"
+        },
+        {
+          "word": "BASEBALL",
+          "hint": "American sport with bats and bases",
+          "difficulty": "easy"
+        },
+        {
+          "word": "SWIMMING",
+          "hint": "Water sport in pools or oceans",
+          "difficulty": "easy"
+        },
+        {
+          "word": "BOXING",
+          "hint": "Combat sport with gloves",
+          "difficulty": "easy"
+        },
+        {
+          "word": "BASKETBALL",
+          "hint": "Sport with hoops and a bouncing ball",
+          "difficulty": "medium"
+        },
+        {
+          "word": "VOLLEYBALL",
+          "hint": "Team sport played over a net",
+          "difficulty": "medium"
+        },
+        {
+          "word": "GYMNASTICS",
+          "hint": "Sport involving flexibility and balance",
+          "difficulty": "medium"
+        },
+        {
+          "word": "BADMINTON",
+          "hint": "Racket sport played with a shuttlecock",
+          "difficulty": "medium"
+        },
+        {
+          "word": "EQUESTRIAN",
+          "hint": "Sport involving horse riding",
+          "difficulty": "hard"
+        },
+        {
+          "word": "TRIATHLON",
+          "hint": "Multi-sport race with swimming, cycling, and running",
+          "difficulty": "hard"
+        },
+        {
+          "word": "LACROSSE",
+          "hint": "Team sport played with sticks and a small rubber ball",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "name": "Food & Drink",
+      "words": [
+        {
+          "word": "PIZZA",
+          "hint": "Italian dish with cheese and toppings",
+          "difficulty": "easy"
+        },
+        {
+          "word": "SUSHI",
+          "hint": "Japanese rice dish with fish or vegetables",
+          "difficulty": "easy"
+        },
+        {
+          "word": "BURGER",
+          "hint": "Sandwich with a patty in a bun",
+          "difficulty": "easy"
+        },
+        {
+          "word": "PASTA",
+          "hint": "Italian noodle dish",
+          "difficulty": "easy"
+        },
+        {
+          "word": "SALAD",
+          "hint": "Dish made of mixed vegetables",
+          "difficulty": "easy"
+        },
+        {
+          "word": "CHOCOLATE",
+          "hint": "Sweet treat made from cacao",
+          "difficulty": "medium"
+        },
+        {
+          "word": "SANDWICH",
+          "hint": "Food between two pieces of bread",
+          "difficulty": "medium"
+        },
+        {
+          "word": "PANCAKE",
+          "hint": "Flat breakfast cake often served with syrup",
+          "difficulty": "medium"
+        },
+        {
+          "word": "CROISSANT",
+          "hint": "French crescent-shaped pastry",
+          "difficulty": "medium"
+        },
+        {
+          "word": "RATATOUILLE",
+          "hint": "French vegetable stew",
+          "difficulty": "hard"
+        },
+        {
+          "word": "BOUILLABAISSE",
+          "hint": "French fish stew from Marseille",
+          "difficulty": "hard"
+        },
+        {
+          "word": "WORCESTERSHIRE",
+          "hint": "Type of English sauce",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "words": [
+        {
+          "word": "INTERNET",
+          "hint": "Global network of computers",
+          "difficulty": "easy"
+        },
+        {
+          "word": "COMPUTER",
+          "hint": "Electronic device for processing data",
+          "difficulty": "easy"
+        },
+        {
+          "word": "SMARTPHONE",
+          "hint": "Mobile device with apps and internet",
+          "difficulty": "easy"
+        },
+        {
+          "word": "BLUETOOTH",
+          "hint": "Wireless technology for connecting devices",
+          "difficulty": "easy"
+        },
+        {
+          "word": "KEYBOARD",
+          "hint": "Input device with keys",
+          "difficulty": "easy"
+        },
+        {
+          "word": "ALGORITHM",
+          "hint": "Step-by-step procedure for solving problems",
+          "difficulty": "medium"
+        },
+        {
+          "word": "ENCRYPTION",
+          "hint": "Process of encoding information",
+          "difficulty": "medium"
+        },
+        {
+          "word": "BANDWIDTH",
+          "hint": "Data transfer capacity of a network",
+          "difficulty": "medium"
+        },
+        {
+          "word": "FIREWALL",
+          "hint": "Network security system",
+          "difficulty": "medium"
+        },
+        {
+          "word": "ARTIFICIALINTELLIGENCE",
+          "hint": "Computer systems that can perform tasks requiring human intelligence",
+          "difficulty": "hard"
+        },
+        {
+          "word": "BLOCKCHAIN",
+          "hint": "Distributed ledger technology",
+          "difficulty": "hard"
+        },
+        {
+          "word": "QUANTUMCOMPUTING",
+          "hint": "Computing using quantum mechanical phenomena",
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "words": [
+        {
+          "word": "GRAVITY",
+          "hint": "Force that attracts objects toward each other",
+          "difficulty": "easy"
+        },
+        {
+          "word": "OXYGEN",
+          "hint": "Gas we breathe to survive",
+          "difficulty": "easy"
+        },
+        {
+          "word": "PLANET",
+          "hint": "Celestial body orbiting a star",
+          "difficulty": "easy"
+        },
+        {
+          "word": "MOLECULE",
+          "hint": "Group of atoms bonded together",
+          "difficulty": "easy"
+        },
+        {
+          "word": "ENERGY",
+          "hint": "Capacity to do work",
+          "difficulty": "easy"
+        },
+        {
+          "word": "PHOTOSYNTHESIS",
+          "hint": "Process by which plants make food using sunlight",
+          "difficulty": "medium"
+        },
+        {
+          "word": "EVOLUTION",
+          "hint": "Process of change in living organisms over time",
+          "difficulty": "medium"
+        },
+        {
+          "word": "CHROMOSOME",
+          "hint": "Structure containing genetic information",
+          "difficulty": "medium"
+        },
+        {
+          "word": "ECOSYSTEM",
+          "hint": "Community of living organisms and their environment",
+          "difficulty": "medium"
+        },
+        {
+          "word": "THERMODYNAMICS",
+          "hint": "Study of heat and energy transformation",
+          "difficulty": "hard"
+        },
+        {
+          "word": "ELECTROMAGNETISM",
+          "hint": "Study of electric and magnetic fields",
+          "difficulty": "hard"
+        },
+        {
+          "word": "BIODIVERSITY",
+          "hint": "Variety of life in the world or ecosystem",
+          "difficulty": "hard"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A feature-rich hangman game with multiplayer support">
+    <title>Hangman Game - Multiplayer & Single Player</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="hangman-loader">
+                <svg viewBox="0 0 250 250" class="hangman-svg">
+                    <!-- Gallows -->
+                    <line x1="10" y1="230" x2="150" y2="230" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="50" y1="230" x2="50" y2="20" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="50" y1="20" x2="130" y2="20" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="130" y1="20" x2="130" y2="50" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    
+                    <!-- Head -->
+                    <circle cx="130" cy="70" r="20" stroke="#333" stroke-width="3" fill="none" class="body-part"/>
+                    
+                    <!-- Body -->
+                    <line x1="130" y1="90" x2="130" y2="150" stroke="#333" stroke-width="3" stroke-linecap="round" class="body-part"/>
+                    
+                    <!-- Arms -->
+                    <line x1="130" y1="110" x2="100" y2="130" stroke="#333" stroke-width="3" stroke-linecap="round" class="body-part"/>
+                    <line x1="130" y1="110" x2="160" y2="130" stroke="#333" stroke-width="3" stroke-linecap="round" class="body-part"/>
+                    
+                    <!-- Legs -->
+                    <line x1="130" y1="150" x2="110" y2="190" stroke="#333" stroke-width="3" stroke-linecap="round" class="body-part"/>
+                    <line x1="130" y1="150" x2="150" y2="190" stroke="#333" stroke-width="3" stroke-linecap="round" class="body-part"/>
+                </svg>
+            </div>
+            <h1>Loading Hangman Game...</h1>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app" class="app-container hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Hangman Game</h1>
+                </div>
+                <nav class="nav-menu">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound">
+                        <span class="sound-icon">🔊</span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Landing Page -->
+            <section id="landing-page" class="page active">
+                <div class="landing-content">
+                    <h2>Welcome to Hangman Game!</h2>
+                    <p>Play solo against AI or challenge friends in multiplayer mode</p>
+                    
+                    <div class="game-modes">
+                        <button id="single-player-btn" class="game-mode-btn primary">
+                            <span class="btn-icon">🤖</span>
+                            <span class="btn-text">Single Player</span>
+                            <span class="btn-description">Play against AI</span>
+                        </button>
+                        
+                        <button id="multiplayer-btn" class="game-mode-btn secondary">
+                            <span class="btn-icon">👥</span>
+                            <span class="btn-text">Multiplayer</span>
+                            <span class="btn-description">Play with friends</span>
+                        </button>
+                        
+                        <button id="quick-match-btn" class="game-mode-btn tertiary">
+                            <span class="btn-icon">⚡</span>
+                            <span class="btn-text">Quick Match</span>
+                            <span class="btn-description">Join random game</span>
+                        </button>
+                    </div>
+                    
+                    <div class="stats-preview">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-games">0</span>
+                            <span class="stat-label">Games Played</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="win-rate">0%</span>
+                            <span class="stat-label">Win Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="current-streak">0</span>
+                            <span class="stat-label">Current Streak</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Single Player Setup -->
+            <section id="single-player-setup" class="page">
+                <div class="setup-content">
+                    <h2>Single Player Setup</h2>
+                    
+                    <div class="setup-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" placeholder="Enter your username" maxlength="20">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty</label>
+                            <select id="difficulty">
+                                <option value="easy">Easy (8-10 guesses)</option>
+                                <option value="medium" selected>Medium (6-7 guesses)</option>
+                                <option value="hard">Hard (4-5 guesses)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category">
+                                <option value="random">Random</option>
+                                <option value="animals">Animals</option>
+                                <option value="countries">Countries</option>
+                                <option value="movies">Movies & TV</option>
+                                <option value="sports">Sports</option>
+                                <option value="food">Food & Drink</option>
+                                <option value="technology">Technology</option>
+                                <option value="science">Science</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button id="start-single-player" class="btn primary">Start Game</button>
+                            <button id="back-to-landing" class="btn secondary">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game Screen -->
+            <section id="game-screen" class="page">
+                <div class="game-container">
+                    <div class="game-header">
+                        <div class="game-info">
+                            <div class="info-item">
+                                <span class="info-label">Category:</span>
+                                <span id="game-category" class="info-value">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Difficulty:</span>
+                                <span id="game-difficulty" class="info-value">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Score:</span>
+                                <span id="game-score" class="info-value">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="game-status">
+                            <div class="timer" id="game-timer">
+                                <span class="timer-icon">⏱️</span>
+                                <span id="timer-value">00:00</span>
+                            </div>
+                            <div class="lives">
+                                <span class="lives-label">Lives:</span>
+                                <div id="lives-display" class="lives-dots"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-main">
+                        <div class="hangman-container">
+                            <svg id="hangman-svg" viewBox="0 0 250 250" class="hangman-svg">
+                                <!-- Gallows -->
+                                <line x1="10" y1="230" x2="150" y2="230" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                                <line x1="50" y1="230" x2="50" y2="20" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                                <line x1="50" y1="20" x2="130" y2="20" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                                <line x1="130" y1="20" x2="130" y2="50" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                                
+                                <!-- Body parts (hidden by default) -->
+                                <g id="hangman-body-parts">
+                                    <!-- Head -->
+                                    <circle cx="130" cy="70" r="20" stroke="#e74c3c" stroke-width="3" fill="none" class="body-part hidden" data-part="head"/>
+                                    
+                                    <!-- Body -->
+                                    <line x1="130" y1="90" x2="130" y2="150" stroke="#e74c3c" stroke-width="3" stroke-linecap="round" class="body-part hidden" data-part="body"/>
+                                    
+                                    <!-- Left Arm -->
+                                    <line x1="130" y1="110" x2="100" y2="130" stroke="#e74c3c" stroke-width="3" stroke-linecap="round" class="body-part hidden" data-part="left-arm"/>
+                                    
+                                    <!-- Right Arm -->
+                                    <line x1="130" y1="110" x2="160" y2="130" stroke="#e74c3c" stroke-width="3" stroke-linecap="round" class="body-part hidden" data-part="right-arm"/>
+                                    
+                                    <!-- Left Leg -->
+                                    <line x1="130" y1="150" x2="110" y2="190" stroke="#e74c3c" stroke-width="3" stroke-linecap="round" class="body-part hidden" data-part="left-leg"/>
+                                    
+                                    <!-- Right Leg -->
+                                    <line x1="130" y1="150" x2="150" y2="190" stroke="#e74c3c" stroke-width="3" stroke-linecap="round" class="body-part hidden" data-part="right-leg"/>
+                                </g>
+                            </svg>
+                        </div>
+                        
+                        <div class="word-container">
+                            <div id="word-display" class="word-display"></div>
+                            <div id="hint" class="hint hidden"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <div id="keyboard" class="keyboard"></div>
+                        
+                        <div class="game-actions">
+                            <button id="hint-btn" class="btn secondary">Get Hint</button>
+                            <button id="quit-btn" class="btn danger">Quit Game</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Multiplayer Setup -->
+            <section id="multiplayer-setup" class="page">
+                <div class="setup-content">
+                    <h2>Multiplayer Setup</h2>
+                    
+                    <div class="multiplayer-options">
+                        <button id="create-room-btn" class="option-btn">
+                            <span class="btn-icon">➕</span>
+                            <span class="btn-text">Create Room</span>
+                        </button>
+                        
+                        <button id="join-room-btn" class="option-btn">
+                            <span class="btn-icon">🔍</span>
+                            <span class="btn-text">Join Room</span>
+                        </button>
+                    </div>
+                    
+                    <div id="create-room-form" class="room-form hidden">
+                        <h3>Create New Room</h3>
+                        <div class="form-group">
+                            <label for="room-name">Room Name</label>
+                            <input type="text" id="room-name" placeholder="Enter room name" maxlength="30">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="max-players">Max Players</label>
+                            <select id="max-players">
+                                <option value="2">2 Players</option>
+                                <option value="3" selected>3 Players</option>
+                                <option value="4">4 Players</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="room-difficulty">Difficulty</label>
+                            <select id="room-difficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="private-room">
+                                Private Room
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button id="create-room-submit" class="btn primary">Create Room</button>
+                            <button id="cancel-create-room" class="btn secondary">Cancel</button>
+                        </div>
+                    </div>
+                    
+                    <div id="join-room-form" class="room-form hidden">
+                        <h3>Join Room</h3>
+                        <div class="form-group">
+                            <label for="room-code">Room Code</label>
+                            <input type="text" id="room-code" placeholder="Enter 6-digit room code" maxlength="6">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button id="join-room-submit" class="btn primary">Join Room</button>
+                            <button id="cancel-join-room" class="btn secondary">Cancel</button>
+                        </div>
+                    </div>
+                    
+                    <button id="back-to-landing-multiplayer" class="btn secondary">Back</button>
+                </div>
+            </section>
+
+            <!-- Room Waiting Area -->
+            <section id="room-waiting" class="page">
+                <div class="room-content">
+                    <h2>Room: <span id="room-name-display"></span></h2>
+                    <div class="room-info">
+                        <div class="info-item">
+                            <span class="info-label">Room Code:</span>
+                            <span id="room-code-display" class="info-value"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Players:</span>
+                            <span id="players-count" class="info-value">0/4</span>
+                        </div>
+                    </div>
+                    
+                    <div class="players-list">
+                        <h3>Players</h3>
+                        <div id="players-container" class="players-container"></div>
+                    </div>
+                    
+                    <div class="room-actions">
+                        <button id="ready-btn" class="btn primary">Ready</button>
+                        <button id="leave-room-btn" class="btn secondary">Leave Room</button>
+                    </div>
+                    
+                    <div id="room-chat" class="room-chat">
+                        <div class="chat-messages" id="chat-messages"></div>
+                        <div class="chat-input">
+                            <input type="text" id="chat-input" placeholder="Type a message..." maxlength="100">
+                            <button id="send-chat-btn" class="btn small">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game Results -->
+            <section id="game-results" class="page">
+                <div class="results-content">
+                    <h2 id="result-title">Game Over!</h2>
+                    
+                    <div class="result-display">
+                        <div id="result-word" class="result-word"></div>
+                        <div id="result-message" class="result-message"></div>
+                    </div>
+                    
+                    <div class="score-summary">
+                        <div class="score-item">
+                            <span class="score-label">Base Score:</span>
+                            <span id="base-score" class="score-value">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Time Bonus:</span>
+                            <span id="time-bonus" class="score-value">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">Difficulty Multiplier:</span>
+                            <span id="difficulty-multiplier" class="score-value">1x</span>
+                        </div>
+                        <div class="score-item total">
+                            <span class="score-label">Total Score:</span>
+                            <span id="total-score" class="score-value">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="results-actions">
+                        <button id="play-again-btn" class="btn primary">Play Again</button>
+                        <button id="main-menu-btn" class="btn secondary">Main Menu</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2023 Hangman Game. Built with ❤️ for Netlify.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "name": "hangman-netlify",
+  "version": "1.0.0",
+  "description": "A feature-rich hangman game with multiplayer support for Netlify deployment",
+  "scripts": {
+    "dev": "npx parcel public/index.html --port 1234",
+    "build": "npx parcel build public/index.html --dist-dir dist --no-source-maps",
+    "lint": "eslint public/scripts/**/*.js",
+    "format": "prettier --write public/scripts/**/*.js",
+    "install:global": "npm install -g parcel",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hangman",
+    "game",
+    "multiplayer",
+    "netlify",
+    "supabase"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.10.3",
+    "eslint": "^8.54.0",
+    "parcel": "^2.10.3",
+    "prettier": "^3.1.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ]
+}
