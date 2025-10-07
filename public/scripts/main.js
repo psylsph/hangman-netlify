@@ -215,11 +215,6 @@ class HangmanApp {
             this.setupGameUI();
             this.showPage('game-screen');
 
-            // Start game timer only for multiplayer
-            if (this.gameMode === 'multiplayer') {
-                this.startGameTimer();
-            }
-
             console.log('Single player game started');
         } catch (error) {
             console.error('Error starting single player game:', error);
@@ -480,6 +475,28 @@ class HangmanApp {
         // Setup lives display
         this.updateLivesDisplay();
 
+        // Setup game actions based on game mode
+        const gameActions = document.querySelector('.game-actions');
+        if (this.gameMode === 'single-player') {
+            // Add AI Hint button for single-player mode
+            if (!document.getElementById('ai-hint-btn')) {
+                const aiHintBtn = document.createElement('button');
+                aiHintBtn.id = 'ai-hint-btn';
+                aiHintBtn.className = 'btn secondary';
+                aiHintBtn.textContent = 'Ask AI for Hint';
+                aiHintBtn.addEventListener('click', () => {
+                    this.getAIHint();
+                });
+                gameActions.insertBefore(aiHintBtn, gameActions.firstChild);
+            }
+        } else {
+            // Remove AI Hint button for multiplayer mode
+            const aiHintBtn = document.getElementById('ai-hint-btn');
+            if (aiHintBtn) {
+                aiHintBtn.remove();
+            }
+        }
+
         // Setup game event listeners
         this.game.on('guessMade', (data) => {
             this.handleGuess(data);
@@ -601,19 +618,27 @@ class HangmanApp {
             this.multiplayerManager.sendGuess(letter, correct);
         }
         
-        // If single player and it's AI's turn
-        if (this.gameMode === 'single-player' && !this.game.isGameOver()) {
-            // Add a delay before AI makes a guess
-            setTimeout(() => {
-                this.makeAIGuess();
-            }, 2000); // 2 second delay
-        }
+        // No automatic AI guessing in single-player mode
+        // The player has full control
     }
 
-    makeAIGuess() {
+    getAIHint() {
         if (this.aiPlayer && !this.game.isGameOver()) {
             const letter = this.aiPlayer.makeGuess(this.game);
-            this.game.makeGuess(letter);
+            
+            // Highlight the suggested letter on the keyboard
+            const key = document.querySelector(`.key[data-letter="${letter}"]`);
+            if (key && !key.classList.contains('disabled')) {
+                key.classList.add('ai-suggestion');
+                
+                // Remove the highlight after 3 seconds
+                setTimeout(() => {
+                    key.classList.remove('ai-suggestion');
+                }, 3000);
+                
+                // Play hint sound
+                this.soundController.playSound('hint');
+            }
         }
     }
 
